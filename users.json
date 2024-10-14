@@ -1,0 +1,10 @@
+[
+  {
+    "id": "1",
+    "username": "john_doe",
+    "password": "$2a$10$FESBpUUBx.EmZARFItoX5OrcEctEhVLuJO75s6OR.aAeLalASn7/i",
+    "account_number": "1234567890",
+    "balance": 1000
+  }
+]
+

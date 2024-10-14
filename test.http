@@ -1,0 +1,65 @@
+###
+
+# curl -X POST http://localhost:3000/auth/third-party
+#-H "Content-Type: application/json"
+#-d '{
+#  "client_id": "third_party_app",
+#  "client_secret": "third_party_secret"
+#}'
+POST http://localhost:3000/auth/third-party
+Content-Type: application/json
+
+{
+  "client_id": "5751f6d8530feab7855c13cfd5aaca0fcb684f3909edbfbd1bbf6bdbab1a7099",
+  "client_secret": "ea6597deb01e528cecac69276ccbb63147a5083358c4506501647fe9c3635467"
+}
+
+###
+
+# curl -X POST http://localhost:3000/auth/account-holder
+#-H "x-client-token: <third_party_access_token>"
+#-H "Content-Type: application/json"
+#-d '{
+#  "username": "john_doe",
+#  "password": "password123"
+#}'
+POST http://localhost:3000/auth/account-holder
+client-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiI1NzUxZjZkODUzMGZlYWI3ODU1YzEzY2ZkNWFhY2EwZmNiNjg0ZjM5MDllZGJmYmQxYmJmNmJkYmFiMWE3MDk5IiwiaWF0IjoxNzI4ODk0MjE5LCJleHAiOjE3Mjg4OTc4MTl9.E-pryIS3VQAT_5cKmy0j0j38PnlGUKEcvharDy5FUEU
+Content-Type: application/json
+
+{
+  "username": "john_doe",
+  "password": "password123"
+}
+
+###
+
+# curl -X POST http://localhost:3000/consent
+#-H "client-authorization: Bearer <client_access_token>"
+#-H "Content-Type: application/json"
+#-d '{
+#  "user_token": "<user_token>"
+#}'
+POST http://localhost:3000/consent
+client-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiI1NzUxZjZkODUzMGZlYWI3ODU1YzEzY2ZkNWFhY2EwZmNiNjg0ZjM5MDllZGJmYmQxYmJmNmJkYmFiMWE3MDk5IiwiaWF0IjoxNzI4ODk0MjE5LCJleHAiOjE3Mjg4OTc4MTl9.E-pryIS3VQAT_5cKmy0j0j38PnlGUKEcvharDy5FUEU
+Content-Type: application/json
+
+{
+  "user_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxIiwiaWF0IjoxNzI4ODk0Mjc0LCJleHAiOjE3Mjg4OTUxNzR9.oIu-pmfrjFx04SM20efu72r160Qmka8ze7-AyDZDGnU"
+}
+
+###
+
+# curl -X GET http://localhost:3000/account/balance
+#-H "client-authorization: Bearer <client_access_token>"
+#-H "Authorization: Bearer <consent_token>"
+GET http://localhost:3000/account/balance
+client-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiI1NzUxZjZkODUzMGZlYWI3ODU1YzEzY2ZkNWFhY2EwZmNiNjg0ZjM5MDllZGJmYmQxYmJmNmJkYmFiMWE3MDk5IiwiaWF0IjoxNzI4ODk0MjE5LCJleHAiOjE3Mjg4OTc4MTl9.E-pryIS3VQAT_5cKmy0j0j38PnlGUKEcvharDy5FUEU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxIiwiY2xhaW1zIjpbInJlYWRfYmFsYW5jZSIsInRyYW5zZmVyX2Z1bmRzIl0sImlhdCI6MTcyODg5NDU3MywiZXhwIjoxNzI4ODk1MTczfQ.tAI80PixBNEjYIa9qJSrLtOO4vAVP2myltH3-B8r9o0
+
+###
+
+
+
+
+
